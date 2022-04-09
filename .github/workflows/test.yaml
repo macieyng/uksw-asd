@@ -1,0 +1,32 @@
+name: Test
+on:
+  - push
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+      - name: Cache App Dependecies
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-app
+        with:
+          path: ${{ env.pythonLocation }}
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('app/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+      - name: Install dependecies
+        run: |
+          pip install --upgrade pip
+          pip install pipenv
+          pipenv lock -r > requirements.txt
+          pip install -r requirements.txte
+      - name: Run Tests
+        run: pytest -vv
