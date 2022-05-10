@@ -20,4 +20,4 @@ from main import bubble_sort, insert_sort, merge_sort, quick_sort, simple_sort
     ]
 )
 def test_sorting(unsorted: Iterable[Any], expected: Iterable[Any], sort_function: Callable[[Any], Any]):
-    assert sort_function(unsorted) == expected
+    assert sort_function(*unsorted) == expected

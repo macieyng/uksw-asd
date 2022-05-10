@@ -1,5 +1,5 @@
 def simple_sort(*args):
-    items = list(*args)
+    items = list(args)
     n = len(items)
     for i in range(0, n - 1):
         minimal = i
@@ -11,7 +11,7 @@ def simple_sort(*args):
 
 
 def insert_sort(*args):
-    items = list(*args)
+    items = list(args)
     n = len(items)
     for i in range(0, n):
         key = items[i]
@@ -24,7 +24,7 @@ def insert_sort(*args):
 
 
 def bubble_sort(*args):
-    items = list(*args)
+    items = list(args)
     n = len(items)
     for i in range(n):
         for j in range(n - 1, i, -1):
@@ -34,7 +34,7 @@ def bubble_sort(*args):
 
 
 def quick_sort(*args):
-    items = list(*args)
+    items = list(args)
     n = len(items)
     if n < 2:
         return items
@@ -44,13 +44,12 @@ def quick_sort(*args):
         if items[i] <= pivot_value:
             pivot_index = pivot_index + 1
             items[pivot_index], items[i] = items[i], items[pivot_index]
-            print(items, pivot_index)
     items[0], items[pivot_index] = items[pivot_index], items[0]
-    return quick_sort(items[: pivot_index + 1]) + quick_sort(items[pivot_index + 1 :])
+    return quick_sort(*items[: pivot_index + 1]) + quick_sort(*items[pivot_index + 1 :])
 
 
 def merge_sort(*args):
-    items = list(*args)
+    items = list(args)
     n = len(items)
     if n < 2:
         return items
@@ -61,8 +60,8 @@ def merge_sort(*args):
         else:
             return items
     pivot = int(n / 2)
-    left = merge_sort(items[:pivot])
-    right = merge_sort(items[pivot:])
+    left = merge_sort(*items[:pivot])
+    right = merge_sort(*items[pivot:])
     left_idx, right_idx = 0, 0
     sorted_items = []
     while left_idx < len(left) and right_idx < len(right):
