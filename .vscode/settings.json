@@ -27,5 +27,6 @@
         "vector": "c",
         "*.tcc": "c",
         "optional": "c"
-    }
+    },
+    "python.formatting.provider": "black"
 }
