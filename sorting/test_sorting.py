@@ -1,7 +1,7 @@
 from typing import Any, Callable, Iterable
 import pytest
 
-from main import bubble_sort, insert_sort, merge_sort, quick_sort, simple_sort
+from . import bubble_sort, insert_sort, merge_sort, quick_sort, simple_sort
 
 @pytest.mark.parametrize(
     "unsorted, expected", [

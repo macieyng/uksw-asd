@@ -1,6 +1,6 @@
 from typing import Tuple
 import pytest
-from main import binary_search
+from . import binary_search
 
 @pytest.mark.parametrize(
     "collection, key, item_idx", [
