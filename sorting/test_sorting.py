@@ -5,7 +5,7 @@ from main import bubble_sort, insert_sort, merge_sort, quick_sort, simple_sort
 
 @pytest.mark.parametrize(
     "unsorted, expected", [
-        ([64,2,31,23,653,234,123,76], [2, 23, 31, 64, 76,123, 234,653]),
+        ([64,2,31,23,653,1,234,123,76], [1, 2, 23, 31, 64, 76,123, 234,653]),
         ([64,2], [2, 64]),
         ([2], [2])
     ]
